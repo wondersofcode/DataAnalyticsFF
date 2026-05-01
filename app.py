@@ -100,13 +100,6 @@ if st.session_state.page == "landing":
     </div>
     """, unsafe_allow_html=True)
     
-    # Tələbələrin Şəkilləri
-    col_tunar, col_leman, col_empty = st.columns([1, 1, 2])
-    with col_tunar:
-        st.image("assets/tunar.jpg", width=150, caption="Tunar Eyyublu")
-    with col_leman:
-        st.image("assets/leman.jpg", width=150, caption="Mayılova Ləman")
-        
     st.markdown("<hr>", unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1.2])
