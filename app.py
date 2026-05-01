@@ -95,8 +95,9 @@ if st.session_state.page == "landing":
     st.markdown("""
     <div class="uni-info">
         <b>Bakı Mühəndislik Universiteti</b><br>
-        Fakültə: İqtisadiyyat və İdarəetmə | Kafedra: Biznesin İdarə Edilməsi<br>
-        Tələbələr: <b>Nəcəfi Tunar</b> və <b>Mayılova Ləman</b>
+        Fakültə: İnformasiya Texnologiyaları | Kafedra: Kompüter mühəndisliyi və Kibertəhlükəsizlik<br>
+        İxtisas: İnformasiya Təhlükəsizliyi<br>
+        Tələbələr: <b>Tunar Eyyublu</b> və <b>Mayılova Ləman</b>
     </div>
     """, unsafe_allow_html=True)
     
@@ -236,4 +237,4 @@ elif st.session_state.page == "dashboard":
     with tab3:
         st.dataframe(filtered_df[['title', 'budget', 'vote_average', 'release_year']].sort_values(by='vote_average', ascending=False), use_container_width=True, height=400)
 
-    st.markdown('<div class="footer">© 2026 BMU | Tədqiqatçılar: <b>Nəcəfi Tunar</b> və <b>Mayılova Ləman</b></div>', unsafe_allow_html=True)
+    st.markdown('<div class="footer">© 2026 BMU | Tədqiqatçılar: <b>Tunar Eyyublu</b> və <b>Mayılova Ləman</b></div>', unsafe_allow_html=True)
