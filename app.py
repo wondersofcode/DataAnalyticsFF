@@ -96,10 +96,18 @@ if st.session_state.page == "landing":
     <div class="uni-info">
         <b>Bakı Mühəndislik Universiteti</b><br>
         Fakültə: İnformasiya Texnologiyaları | Kafedra: Kompüter mühəndisliyi və Kibertəhlükəsizlik<br>
-        İxtisas: İnformasiya Təhlükəsizliyi<br>
-        Tələbələr: <b>Tunar Eyyublu</b> və <b>Mayılova Ləman</b>
+        İxtisas: İnformasiya Təhlükəsizliyi
     </div>
     """, unsafe_allow_html=True)
+    
+    # Tələbələrin Şəkilləri
+    col_tunar, col_leman, col_empty = st.columns([1, 1, 2])
+    with col_tunar:
+        st.image("assets/tunar.jpg", width=150, caption="Tunar Eyyublu")
+    with col_leman:
+        st.image("assets/leman.jpg", width=150, caption="Mayılova Ləman")
+        
+    st.markdown("<hr>", unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1.2])
     
@@ -130,16 +138,31 @@ if st.session_state.page == "landing":
         </div>
         """, unsafe_allow_html=True)
         
-        # 6. Digər Modellərin Analizi
+        # 5. Kod Nümunəsi (Slayd kimi)
         st.markdown("""
         <div class="landing-card">
-            <span class="roadmap-number">03</span>
-            <h3 style='color: white; margin-top:0;'>Digər Analiz Modelləri</h3>
-            <p style='color: #cccccc;'>Gələcəkdə yalnız Pearson korrelyasiyası deyil, həmçinin aşağıdakı modellər tətbiq oluna bilər:<br>
-            • <b>Multiple Linear Regression:</b> Büdcə ilə yanaşı, aktyor populyarlığı və janrın bala təsirini ölçmək.<br>
-            • <b>Sentiment Analysis (NLP):</b> Twitter və Reddit-dəki izləyici rəylərinin (müsbət/mənfi) IMDb balına təsirini tapmaq.</p>
+            <span class="roadmap-number">04</span>
+            <h3 style='color: white; margin-top:0;'>Kod Arxitekturası (Nümunə)</h3>
+            <p style='color: #cccccc;'>Arxa planda məlumatların filterlənməsi və interaktiv qrafikin (Plotly) qurulması üçün istifadə olunan alqoritm:</p>
         </div>
         """, unsafe_allow_html=True)
+        
+        st.code("""
+# Python (Streamlit & Plotly) Kod Nümunəsi
+filtered_df = df[
+    (df['release_year'] >= selected_years[0]) & 
+    (df['budget'] >= selected_budget[0]) &
+    (df['vote_average'] >= selected_vote)
+]
+
+fig = px.scatter(
+    filtered_df, x='budget', y='vote_average', 
+    hover_name='title', color='vote_average',
+    color_continuous_scale=px.colors.sequential.Agsunset,
+    size_max=10, opacity=0.8
+)
+st.plotly_chart(fig, use_container_width=True)
+        """, language='python')
 
 
 # ---------------- MAIN DASHBOARD (ƏSAS PANEL) ----------------
